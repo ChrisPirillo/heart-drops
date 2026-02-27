@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en"><head><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1CQ4D3VQ3L"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1CQ4D3VQ3L');
+  </script>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+<title>Heart Drops: Cinematic Rain &amp; Heart Visualizer</title>
+
+<meta name="description" content="An immersive WebGL rain simulator on glass featuring customizable fog, lightning, heart-shaped mist, and interactive atmospheric controls.">
+<meta name="keywords" content="WebGL Rain, Atmospheric Visualizer, Shader Art, Rainy Window Simulation, Interactive Wallpaper, Fragment Shader, Visual Effects, Creative Tool">
+<meta name="author" content="Chris Pirillo">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+<meta name="application-name" content="Heartfelt: Cinematic Rain &amp; Heart Visualizer">
+<meta name="apple-mobile-web-app-title" content="Heartfelt: Cinematic Rain &amp; Heart Visualizer">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<meta property="og:site_name" content="Chris Pirillo's Arcade">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heartfelt: Cinematic Rain &amp; Heart Visualizer">
+<meta property="og:description" content="An immersive WebGL rain simulator on glass featuring customizable fog, lightning, heart-shaped mist, and interactive atmospheric controls.">
+<meta property="og:url" content="https://arcade.pirillo.com/heart-drops.html">
+<meta property="og:image" content="https://arcade.pirillo.com/images/heart-drops.png">
+<meta property="og:image:alt" content="Heartfelt: Cinematic Rain &amp; Heart Visualizer">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-26T21:47:07.364Z">
+<meta property="article:author" content="Chris Pirillo">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ChrisPirillo">
+<meta name="twitter:creator" content="@ChrisPirillo">
+<meta name="twitter:title" content="Heartfelt: Cinematic Rain &amp; Heart Visualizer">
+<meta name="twitter:description" content="An immersive WebGL rain simulator on glass featuring customizable fog, lightning, heart-shaped mist, and interactive atmospheric controls.">
+<meta name="twitter:image" content="https://arcade.pirillo.com/images/heart-drops.png">
+<meta name="twitter:domain" content="arcade.pirillo.com">
+<meta name="twitter:url" content="https://arcade.pirillo.com/heart-drops.html">
+
+<link rel="canonical" href="https://arcade.pirillo.com/heart-drops.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Heartfelt: Cinematic Rain & Heart Visualizer",
+  "description": "An immersive WebGL rain simulator on glass featuring customizable fog, lightning, heart-shaped mist, and interactive atmospheric controls.",
+  "url": "https://arcade.pirillo.com/heart-drops.html",
+  "image": "https://arcade.pirillo.com/images/heart-drops.png",
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://arcade.pirillo.com/images/heart-drops.png"
+  },
+  "datePublished": "2026-02-26T21:47:07.364Z",
+  "dateModified": "2026-02-26T21:47:07.364Z",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Pirillo",
+    "url": "https://pirillo.com",
+    "sameAs": [
+      "https://x.com/ChrisPirillo",
+      "https://linkedin.com/in/chrispirillo"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chris Pirillo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pirillo.com/logo.png"
+    }
+  },
+  "mainEntity": {
+    "@type": "WebApplication",
+    "name": "Heartfelt: Cinematic Rain & Heart Visualizer",
+    "description": "An immersive WebGL rain simulator on glass featuring customizable fog, lightning, heart-shaped mist, and interactive atmospheric controls.",
+    "image": "https://arcade.pirillo.com/images/heart-drops.png",
+    "operatingSystem": "Any",
+    "applicationCategory": "Simulation",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Chris Pirillo",
+      "url": "https://pirillo.com"
+    },
+    "datePublished": "2026-02-26T21:47:07.364Z",
+    "inLanguage": "en-US"
+  }
+}</script>
+
+<meta charset="UTF-8">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap'); :root { --bg-dark: #0a0a0a; --accent: #3b82f6; }
+body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: var(--bg-dark); font-family: 'Inter', sans-serif; user-select: none; -webkit-user-select: none; }
+canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.fade-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; opacity: 0; pointer-events: none; transition: opacity 0.5s ease-in-out; z-index: 40; }
+.fade-active { opacity: 1; }
+.glass-panel { background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.sticky-header { position: sticky; top: 0; z-index: 50; background: rgba(20, 20, 20, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+input[type=range] { -webkit-appearance: none; background: transparent; }
+input[type=range]:focus { outline: none; }
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; }
+input[type=range]::-webkit-slider-thumb { height: 16px; width: 16px; border-radius: 50%; background: #fff; cursor: pointer; -webkit-appearance: none; margin-top: -6px; }
+.menu-transition { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.modal-bg { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(4px); }</style>
+</head>
+<body><h1 style="display: none;">Heartfelt: Cinematic Rain &amp; Heart Visualizer</h1>
+
+    <div id="fadeOverlay" class="fade-overlay"></div>
+
+    <canvas id="glCanvas"></canvas>
+
+    <button id="menuTrigger" class="fixed top-6 right-6 z-50 p-3 glass-panel rounded-full text-white hover:bg-white/10 transition-colors focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+    </button>
+
+    <div id="settingsPanel" class="fixed top-0 right-0 h-full w-full sm:w-[400px] glass-panel z-50 transform translate-x-full menu-transition flex flex-col shadow-2xl">
+        <div class="sticky-header px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <h2 class="text-xl font-semibold text-white tracking-tight">Heartfelt Settings</h2>
+                <button id="infoBtn" class="w-6 h-6 flex items-center justify-center rounded-full border border-white/30 text-white/50 hover:text-white hover:border-white transition-all text-sm">?</button>
+            </div>
+            <button id="closeSettings" class="p-2 text-white/60 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-8 pb-32">
+            <section>
+                <h3 class="text-xs uppercase tracking-widest text-white/40 font-bold mb-4">Environment</h3>
+                <div class="space-y-4">
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm text-white/80">Background URL</label>
+                        <input type="text" id="param-bgUrl" placeholder="Paste image URL..." class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-xs outline-none focus:border-white/30 transition-all">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm text-white/80">Upload Local Image</label>
+                        <input type="file" id="param-bgFile" accept="image/*" class="text-xs text-white/40 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-white/10 file:text-white hover:file:bg-white/20">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xs uppercase tracking-widest text-white/40 font-bold mb-4">Core Dynamics</h3>
+                <div class="space-y-4">
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-white/80">Timeline Scrub (Story)</label>
+                            <span class="text-white/40" id="val-storyTime">0%</span>
+                        </div>
+                        <input type="range" id="param-storyTime" min="0" max="102" step="0.1" value="25" class="w-full">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-white/80">Rain Density</label>
+                            <span class="text-white/40" id="val-rainAmount">1.0</span>
+                        </div>
+                        <input type="range" id="param-rainAmount" min="0.01" max="5" step="0.01" value="1" class="w-full">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="text-sm text-white/80">Has Heart Logic</label>
+                        <input type="checkbox" id="param-hasHeart" class="w-5 h-5 rounded" checked="">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xs uppercase tracking-widest text-white/40 font-bold mb-4">Glass &amp; Fog</h3>
+                <div class="space-y-4">
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-white/80">Min Blur (Clear)</label>
+                            <span class="text-white/40" id="val-minBlur">2.0</span>
+                        </div>
+                        <input type="range" id="param-minBlur" min="0" max="10" step="0.1" value="2" class="w-full">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-white/80">Max Blur (Foggy)</label>
+                            <span class="text-white/40" id="val-maxBlur">6.0</span>
+                        </div>
+                        <input type="range" id="param-maxBlur" min="0" max="20" step="0.1" value="6" class="w-full">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-white/80">Zoom Factor</label>
+                            <span class="text-white/40" id="val-zoom">1.0</span>
+                        </div>
+                        <input type="range" id="param-zoom" min="0.1" max="3" step="0.01" value="1" class="w-full">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xs uppercase tracking-widest text-white/40 font-bold mb-4">Atmosphere</h3>
+                <div class="space-y-4">
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-white/80">Lightning Intensity</label>
+                            <span class="text-white/40" id="val-lightning">1.0</span>
+                        </div>
+                        <input type="range" id="param-lightning" min="0" max="5" step="0.1" value="1" class="w-full">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-white/80">Color Shift (Tint)</label>
+                            <span class="text-white/40" id="val-colorShift">1.0</span>
+                        </div>
+                        <input type="range" id="param-colorShift" min="0" max="2" step="0.1" value="1" class="w-full">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="text-sm text-white/80">Post Processing</label>
+                        <input type="checkbox" id="param-usePost" class="w-5 h-5 rounded" checked="">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xs uppercase tracking-widest text-white/40 font-bold mb-4">Automation</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <label class="text-sm text-white/80">Auto-Advance</label>
+                        <input type="checkbox" id="param-autoAdvance" class="w-5 h-5 rounded">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between text-sm">
+                            <label class="text-white/80">Interval (sec)</label>
+                            <span class="text-white/40" id="val-autoInterval">15</span>
+                        </div>
+                        <input type="range" id="param-autoInterval" min="5" max="60" step="1" value="15" class="w-full">
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-2 gap-3">
+                <button id="btnExportSettings" class="py-3 px-4 glass-panel text-white text-xs font-bold rounded-xl hover:bg-white/10 transition-all border border-white/5">EXPORT SETTINGS</button>
+                <button id="btnImportSettings" class="py-3 px-4 glass-panel text-white text-xs font-bold rounded-xl hover:bg-white/10 transition-all border border-white/5">IMPORT SETTINGS</button>
+                <input type="file" id="importInput" class="hidden" accept=".json">
+            </section>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full p-6 glass-panel border-t border-white/10 bg-black/90 grid grid-cols-2 gap-3">
+            <button id="btnRandomize" class="py-3 px-4 glass-panel text-white text-xs font-bold rounded-xl hover:bg-white/10 transition-all border border-white/5">RANDOMIZE</button>
+            <button id="btnReset" class="py-3 px-4 glass-panel text-white text-xs font-bold rounded-xl hover:bg-white/10 transition-all border border-white/5">RESET</button>
+            <button id="btnWallpaper" class="col-span-2 py-4 px-4 bg-white text-black text-xs font-bold rounded-xl hover:bg-white/90 transition-all">EXPORT 4K WALLPAPER</button>
+        </div>
+    </div>
+
+    <div id="infoModal" class="fixed inset-0 z-[100] hidden modal-bg flex items-center justify-center p-6">
+        <div class="glass-panel w-full max-w-md p-8 rounded-3xl relative">
+            <h2 class="text-2xl font-bold text-white mb-4">About Heartfelt</h2>
+            <div class="space-y-4 text-white/70 leading-relaxed text-sm">
+                <p>This is a real-time WebGL implementation of the shader by BigWings.</p>
+                <p class="font-semibold text-white">Instructions:</p>
+                <ul class="list-disc ml-5 space-y-1">
+                    <li><span class="text-white">Desktop:</span> Click empty canvas to randomize. Open settings to adjust time and appearance.</li>
+                    <li><span class="text-white">Mobile:</span> Double-tap canvas to randomize. Pinch to zoom.</li>
+                </ul>
+                <div class="pt-4 flex flex-col gap-2">
+                    <a href="https://arcade.pirillo.com/" target="_blank" class="text-blue-400 hover:text-blue-300">More of My Apps</a>
+                    <a href="https://chris.pirillo.com/" target="_blank" class="text-blue-400 hover:text-blue-300">Follow Chris Pirillo</a>
+                    <a href="https://ctrlaltcreate.live/" target="_blank" class="text-blue-400 hover:text-blue-300">Learn How to Make Apps</a>
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=UMWCDWGVXVHZU" target="_blank" class="text-blue-400 hover:text-blue-300">Donate to Me Here</a>
+                    <a href="https://patreon.com/ChrisPirillo" target="_blank" class="text-blue-400 hover:text-blue-300">Support My Patreon</a>
+                </div>
+            </div>
+            <button id="closeInfo" class="mt-8 w-full py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-all">Close</button>
+        </div>
+    </div>
+
+    <script id="vertexShader" type="x-shader/x-vertex">
+        attribute vec2 position;
+        void main() {
+            gl_Position = vec4(position, 0.0, 1.0);
+        }
+    </script>
+
+    <script id="fragmentShader" type="x-shader/x-fragment">
+        precision highp float;
+
+        uniform vec2 iResolution;
+        uniform float iTime;
+        uniform sampler2D iChannel0;
+
+        uniform float uStoryTime;
+        uniform float uRainAmount;
+        uniform bool uHasHeart;
+        uniform bool uUsePost;
+        uniform float uMinBlur;
+        uniform float uMaxBlur;
+        uniform float uZoom;
+        uniform float uLightning;
+        uniform float uColorShift;
+        uniform vec2 uImageResolution;
+
+        #define S(a, b, t) smoothstep(a, b, t)
+
+        vec3 N13(float p) {
+            vec3 p3 = fract(vec3(p) * vec3(.1031,.11369,.13787));
+            p3 += dot(p3, p3.yzx + 19.19);
+            return fract(vec3((p3.x + p3.y)*p3.z, (p3.x+p3.z)*p3.y, (p3.y+p3.z)*p3.x));
+        }
+
+        float N(float t) {
+            return fract(sin(t*12345.564)*7658.76);
+        }
+
+        float Saw(float b, float t) {
+            return S(0., b, t)*S(1., b, t);
+        }
+
+        vec2 DropLayer2(vec2 uv, float t) {
+            vec2 UV = uv;
+            uv.y += t*0.75;
+            vec2 a = vec2(6., 1.);
+            vec2 grid = a*2.;
+            vec2 id = floor(uv*grid);
+            float colShift = N(id.x); 
+            uv.y += colShift;
+            id = floor(uv*grid);
+            vec3 n = N13(id.x*35.2+id.y*2376.1);
+            vec2 st = fract(uv*grid)-vec2(.5, 0);
+            float x = n.x-.5;
+            float y = UV.y*20.;
+            float wiggle = sin(y+sin(y));
+            x += wiggle*(.5-abs(x))*(n.z-.5);
+            x *= .7;
+            float ti = fract(t+n.z);
+            y = (Saw(.85, ti)-.5)*.9+.5;
+            vec2 p = vec2(x, y);
+            float d = length((st-p)*a.yx);
+            float mainDrop = S(.4, .1, d); // Softer edge
+            float r = sqrt(S(1., y, st.y));
+            float cd = abs(st.x-x);
+            float trail = S(.23*r, .15*r*r, cd);
+            float trailFront = S(-.02, .02, st.y-y);
+            trail *= trailFront*r*r;
+            y = UV.y;
+            float trail2 = S(.2*r, .0, cd);
+            float droplets = max(0., (sin(y*(1.-y)*120.)-st.y))*trail2*trailFront*n.z;
+            y = fract(y*10.)+(st.y-.5);
+            float dd = length(st-vec2(x, y));
+            droplets = S(.3, 0.1, dd);
+            float m = mainDrop+droplets*r*trailFront;
+            return vec2(m, trail);
+        }
+
+        float StaticDrops(vec2 uv, float t) {
+            uv *= 40.;
+            vec2 id = floor(uv);
+            uv = fract(uv)-.5;
+            vec3 n = N13(id.x*107.45+id.y*3543.654);
+            vec2 p = (n.xy-.5)*.7;
+            float d = length(uv-p);
+            float fade = Saw(.025, fract(t+n.z));
+            float c = S(.3, 0.1, d)*fract(n.z*10.)*fade;
+            return c;
+        }
+
+        vec2 Drops(vec2 uv, float t, float l0, float l1, float l2) {
+            float s = StaticDrops(uv, t)*l0; 
+            vec2 m1 = DropLayer2(uv, t)*l1;
+            vec2 m2 = DropLayer2(uv*1.85, t)*l2;
+            float c = s+m1.x+m2.x;
+            c = S(.3, 1., c);
+            return vec2(c, max(m1.y*l0, m2.y*l1));
+        }
+
+        void main() {
+            vec2 fragCoord = gl_FragCoord.xy;
+            vec2 uv = (fragCoord.xy-.5*iResolution.xy) / iResolution.y;
+            vec2 UV = fragCoord.xy/iResolution.xy;
+            
+            float T = uStoryTime;
+            float t = (iTime * 0.2) + (uStoryTime * 0.05); 
+            
+            float rainAmt = uRainAmount;
+            float maxB = uMaxBlur;
+            float minB = uMinBlur;
+            
+            float story = 0.;
+            float heart = 0.;
+            
+            if (uHasHeart) {
+                story = S(0., 70., T);
+                
+                // Remap drop time so it goes slower when it freezes (faithful to original)
+                float drop_t = min(1., T/70.);
+                drop_t = 1.-drop_t;
+                drop_t = (1.-drop_t*drop_t)*70.;
+                t = (drop_t + iTime*0.05); // Blend scrub and real-time
+
+                float zoomFact = mix(.3, 1.2, story) * uZoom;
+                uv *= zoomFact;
+                
+                minB = uMinBlur + S(.5, 1., story)*3.;
+                maxB = uMaxBlur + S(.5, 1., story)*1.5;
+                
+                vec2 hv = uv-vec2(.0, -.1);
+                hv.x *= .5;
+                float s = S(110., 70., T);
+                hv.y-=sqrt(abs(hv.x))*.5*s;
+                heart = length(hv);
+                heart = S(.4*s, .2*s, heart)*s;
+                
+                // Heart logic drives rain presence
+                rainAmt *= heart;
+                maxB -= heart;
+                uv *= 1.5;
+            } else {
+                float zoomFact = (-cos(T*.2)) * uZoom;
+                uv *= .7+zoomFact*.3;
+            }
+
+            float staticDrops = S(-.5, 1., rainAmt)*2.;
+            float layer1 = S(.25, .75, rainAmt);
+            float layer2 = S(.0, .5, rainAmt);
+            
+            vec2 c = Drops(uv, t, staticDrops, layer1, layer2);
+            
+            vec2 e = vec2(.001, 0.);
+            float cx = Drops(uv+e, t, staticDrops, layer1, layer2).x;
+            float cy = Drops(uv+e.yx, t, staticDrops, layer1, layer2).x;
+            vec2 n = vec2(cx-c.x, cy-c.x);
+
+            if (uHasHeart) {
+                n *= 1.-S(60., 85., T);
+                c.y *= 1.-S(80., 100., T)*.8;
+            }
+            
+            float focus = mix(maxB - c.y, minB, S(.1, .2, c.x));
+            
+            vec2 texUV = UV;
+            vec2 texScale = vec2(1.0);
+            float screenAspect = iResolution.x / iResolution.y;
+            float imageAspect = uImageResolution.x / uImageResolution.y;
+            if (screenAspect > imageAspect) {
+                texScale.y = imageAspect / screenAspect;
+                texUV.y = (texUV.y - 0.5) * texScale.y + 0.5;
+            } else {
+                texScale.x = screenAspect / imageAspect;
+                texUV.x = (texUV.x - 0.5) * texScale.x + 0.5;
+            }
+            
+            vec3 col = texture2D(iChannel0, texUV + n * texScale, focus).rgb;
+
+            if (uUsePost) {
+                float pt = (iTime + uStoryTime + 3.) * 0.5;
+                // Fix Color ShiftTint logic
+                float colFade = (sin(pt*.2)*.5+.5 + story);
+                col *= mix(vec3(1.), vec3(.8, .9, 1.3), colFade * uColorShift);
+                
+                float fade = S(-2.0, 10.0, T); 
+                float lightning = sin(pt*sin(pt*10.));
+                lightning *= pow(max(0., sin(pt+sin(pt))), 10.) * uLightning;
+                col *= 1.+lightning*fade*mix(1., .1, story*story);
+                
+                vec2 vuv = UV - 0.5;
+                col *= 1.-dot(vuv, vuv);
+                
+                if (uHasHeart) {
+                    col = mix(pow(col, vec3(1.2)), col, heart);
+                    fade *= S(102., 97., T);
+                }
+                col *= fade;
+            }
+            
+            gl_FragColor = vec4(col, 1.0);
+        }
+    </script>
+
+    <script>
+        const canvas = document.getElementById('glCanvas');
+        const gl = canvas.getContext('webgl', { antialias: true, alpha: false });
+        const fadeOverlay = document.getElementById('fadeOverlay');
+        
+        let state = {
+            storyTime: 25, 
+            rainAmount: 1,
+            hasHeart: true,
+            usePost: true,
+            minBlur: 2,
+            maxBlur: 6,
+            zoom: 1,
+            lightning: 1,
+            colorShift: 1,
+            autoAdvance: false,
+            autoInterval: 15,
+            lastAdvanceTime: Date.now(),
+            bgUrl: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+        };
+
+        let mousePos = { x: 0, y: 0, z: 0, w: 0 };
+        let program;
+        let uniforms = {};
+        let mainTexture;
+        let imageResolution = { width: 1920, height: 1080 };
+
+        function nextPowerOfTwo(n) {
+            return Math.pow(2, Math.ceil(Math.log2(n)));
+        }
+
+        function createShader(gl, type, source) {
+            const s = gl.createShader(type);
+            gl.shaderSource(s, source);
+            gl.compileShader(s);
+            if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(s));
+            return s;
+        }
+
+        function updateTexture(src) {
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+            img.onload = () => {
+                imageResolution.width = img.width;
+                imageResolution.height = img.height;
+                const targetSize = nextPowerOfTwo(Math.max(img.width, img.height, 1024));
+                const off = document.createElement('canvas');
+                off.width = targetSize;
+                off.height = targetSize;
+                const ctx = off.getContext('2d');
+                ctx.drawImage(img, 0, 0, targetSize, targetSize);
+
+                gl.bindTexture(gl.TEXTURE_2D, mainTexture);
+                gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+                gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, off);
+                gl.generateMipmap(gl.TEXTURE_2D);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+            };
+            img.src = src;
+        }
+
+        function initGL() {
+            if (!gl) return;
+            const vs = createShader(gl, gl.VERTEX_SHADER, document.getElementById('vertexShader').text);
+            const fs = createShader(gl, gl.FRAGMENT_SHADER, document.getElementById('fragmentShader').text);
+            program = gl.createProgram();
+            gl.attachShader(program, vs);
+            gl.attachShader(program, fs);
+            gl.linkProgram(program);
+            gl.useProgram(program);
+
+            const buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+            const pos = gl.getAttribLocation(program, 'position');
+            gl.enableVertexAttribArray(pos);
+            gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+
+            mainTexture = gl.createTexture();
+            updateTexture(state.bgUrl);
+
+            uniforms = {
+                iResolution: gl.getUniformLocation(program, 'iResolution'),
+                iTime: gl.getUniformLocation(program, 'iTime'),
+                iChannel0: gl.getUniformLocation(program, 'iChannel0'),
+                uStoryTime: gl.getUniformLocation(program, 'uStoryTime'),
+                uRainAmount: gl.getUniformLocation(program, 'uRainAmount'),
+                uHasHeart: gl.getUniformLocation(program, 'uHasHeart'),
+                uUsePost: gl.getUniformLocation(program, 'uUsePost'),
+                uMinBlur: gl.getUniformLocation(program, 'uMinBlur'),
+                uMaxBlur: gl.getUniformLocation(program, 'uMaxBlur'),
+                uZoom: gl.getUniformLocation(program, 'uZoom'),
+                uLightning: gl.getUniformLocation(program, 'uLightning'),
+                uColorShift: gl.getUniformLocation(program, 'uColorShift'),
+                uImageResolution: gl.getUniformLocation(program, 'uImageResolution'),
+            };
+        }
+
+        function resize() {
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = window.innerWidth * dpr;
+            canvas.height = window.innerHeight * dpr;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+
+        function updateUI() {
+            Object.keys(state).forEach(key => {
+                const el = document.getElementById(`param-${key}`);
+                const valEl = document.getElementById(`val-${key}`);
+                if (el) {
+                    if (el.type === 'checkbox') el.checked = state[key];
+                    else el.value = state[key];
+                }
+                if (valEl) {
+                    if (key === 'storyTime') valEl.innerText = Math.round((state[key]/102)*100) + '%';
+                    else if (typeof state[key] === 'number') valEl.innerText = state[key].toFixed(1);
+                    else valEl.innerText = state[key];
+                }
+            });
+        }
+
+        function randomize() {
+            fadeOverlay.classList.add('fade-active');
+            setTimeout(() => {
+                state.storyTime = 10 + Math.random() * 80;
+                state.rainAmount = 0.5 + Math.random() * 2.5;
+                state.minBlur = 1 + Math.random() * 3;
+                state.maxBlur = 4 + Math.random() * 10;
+                state.zoom = 0.7 + Math.random() * 1.3;
+                state.lightning = Math.random() * 3.5;
+                state.colorShift = 0.5 + Math.random() * 1.5;
+                state.hasHeart = Math.random() > 0.2;
+                updateUI();
+                state.lastAdvanceTime = Date.now();
+                setTimeout(() => fadeOverlay.classList.remove('fade-active'), 50);
+            }, 500);
+        }
+
+        function reset() {
+            state = {
+                storyTime: 25, rainAmount: 1, hasHeart: true, usePost: true, minBlur: 2, maxBlur: 6,
+                zoom: 1, lightning: 1, colorShift: 1, autoAdvance: false, autoInterval: 15,
+                lastAdvanceTime: Date.now(),
+                bgUrl: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+            };
+            updateTexture(state.bgUrl);
+            updateUI();
+        }
+
+        let lastTap = 0;
+        let touchStartDist = 0;
+        let startZoom = 1;
+
+        // Click on empty canvas to randomize
+        canvas.addEventListener('click', () => {
+            if (settingsPanel.classList.contains('translate-x-full')) randomize();
+        });
+
+        // Touch handling
+        canvas.addEventListener('touchstart', (e) => {
+            const now = Date.now();
+            if (now - lastTap < 300) randomize();
+            lastTap = now;
+            if (e.touches.length === 2) {
+                touchStartDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+                startZoom = state.zoom;
+            }
+        });
+
+        canvas.addEventListener('touchmove', (e) => {
+            // Drag scrubbing REMOVED per user request
+            if (e.touches.length === 2) {
+                const dist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+                state.zoom = startZoom * (dist / touchStartDist);
+                updateUI();
+            }
+        });
+
+        const settingsPanel = document.getElementById('settingsPanel');
+        const menuTrigger = document.getElementById('menuTrigger');
+        menuTrigger.onclick = () => settingsPanel.classList.remove('translate-x-full');
+        document.getElementById('closeSettings').onclick = () => settingsPanel.classList.add('translate-x-full');
+        document.getElementById('infoBtn').onclick = () => document.getElementById('infoModal').classList.remove('hidden');
+        document.getElementById('closeInfo').onclick = () => document.getElementById('infoModal').classList.add('hidden');
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('infoModal').classList.add('hidden');
+                settingsPanel.classList.add('translate-x-full');
+            }
+        });
+
+        const params = ['storyTime', 'rainAmount', 'hasHeart', 'usePost', 'minBlur', 'maxBlur', 'zoom', 'lightning', 'colorShift', 'autoAdvance', 'autoInterval'];
+        params.forEach(p => {
+            const el = document.getElementById(`param-${p}`);
+            if (!el) return;
+            el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', () => {
+                state[p] = el.type === 'checkbox' ? el.checked : parseFloat(el.value);
+                updateUI();
+                if (p === 'autoAdvance') state.lastAdvanceTime = Date.now();
+            });
+        });
+
+        document.getElementById('param-bgUrl').onchange = (e) => {
+            state.bgUrl = e.target.value;
+            updateTexture(state.bgUrl);
+        };
+
+        document.getElementById('param-bgFile').onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (re) => updateTexture(re.target.result);
+                reader.readAsDataURL(file);
+            }
+        };
+
+        document.getElementById('btnRandomize').onclick = randomize;
+        document.getElementById('btnReset').onclick = reset;
+        document.getElementById('btnExportSettings').onclick = () => {
+            const data = JSON.stringify(state, null, 2);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Heartfelt_Settings_${Date.now()}.json`;
+            a.click();
+        };
+        document.getElementById('btnImportSettings').onclick = () => document.getElementById('importInput').click();
+        document.getElementById('importInput').onchange = (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (re) => {
+                try {
+                    state = { ...state, ...JSON.parse(re.target.result) };
+                    updateTexture(state.bgUrl);
+                    updateUI();
+                } catch(e){}
+            };
+            reader.readAsText(file);
+        };
+        document.getElementById('btnWallpaper').onclick = () => {
+            const a = document.createElement('a');
+            a.href = canvas.toDataURL('image/png');
+            a.download = 'Heartfelt_Wallpaper.png';
+            a.click();
+        };
+
+        function render(now) {
+            now *= 0.001; 
+            if (state.autoAdvance && (Date.now() - state.lastAdvanceTime) / 1000 >= state.autoInterval) randomize();
+            
+            gl.uniform2f(uniforms.iResolution, canvas.width, canvas.height);
+            gl.uniform1f(uniforms.iTime, now);
+            gl.uniform1f(uniforms.uStoryTime, state.storyTime);
+            gl.uniform1f(uniforms.uRainAmount, state.rainAmount);
+            gl.uniform1i(uniforms.uHasHeart, state.hasHeart);
+            gl.uniform1i(uniforms.uUsePost, state.usePost);
+            gl.uniform1f(uniforms.uMinBlur, state.minBlur);
+            gl.uniform1f(uniforms.uMaxBlur, state.maxBlur);
+            gl.uniform1f(uniforms.uZoom, state.zoom);
+            gl.uniform1f(uniforms.uLightning, state.lightning);
+            gl.uniform1f(uniforms.uColorShift, state.colorShift);
+            gl.uniform2f(uniforms.uImageResolution, imageResolution.width, imageResolution.height);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            requestAnimationFrame(render);
+        }
+
+        window.onload = () => {
+            initGL();
+            resize();
+            updateUI();
+            requestAnimationFrame(render);
+        };
+        window.onresize = resize;
+    </script>
+
+</body></html>
